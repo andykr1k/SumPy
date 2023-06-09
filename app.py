@@ -12,6 +12,7 @@ def main():
     load_dotenv()
     st.set_page_config(page_title="SumPy", page_icon="📄", menu_items=None)
     st.header("📄 SumPy")
+    st.write("Chat with your PDF's using AI!")
     hide_streamlit_style = """
             <style>
             MainMenu {visibility: hidden;}
@@ -62,7 +63,6 @@ def main():
     </div>
     """
     st.write(ft, unsafe_allow_html=True)
-
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     # upload file
     pdf = st.file_uploader("Upload your PDF", type="pdf")
