@@ -9,7 +9,6 @@ from langchain.llms import OpenAI
 from langchain.callbacks import get_openai_callback
 
 def main():
-    load_dotenv()
     st.set_page_config(page_title="SumPy", page_icon="📄", menu_items=None)
     st.header("📄 SumPy")
     st.write("Chat with your PDF's using AI!")
@@ -34,7 +33,7 @@ def main():
 
     #page-container {
       position: relative;
-      min-height: 10vh;
+      min-height: 0vh;
     }
 
     footer{
@@ -64,6 +63,7 @@ def main():
     """
     st.write(ft, unsafe_allow_html=True)
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+    OPENAI_API_KEY = st.text_input(label="Enter OpenAI Key")
     # upload file
     pdf = st.file_uploader("Upload your PDF", type="pdf")
     
@@ -84,7 +84,7 @@ def main():
       chunks = text_splitter.split_text(text)
       
       # create embeddings
-      embeddings = OpenAIEmbeddings()
+      embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
       knowledge_base = FAISS.from_texts(chunks, embeddings)
       
       # show user input
