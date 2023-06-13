@@ -15,6 +15,7 @@ def main():
     st.header("📄 SumPy")
     hide_streamlit_style = """
             <style>
+            MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             </style>
             """
