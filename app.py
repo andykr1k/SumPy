@@ -10,7 +10,7 @@ from langchain.callbacks import get_openai_callback
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="SumPy", page_icon="📄")
+    st.set_page_config(page_title="SumPy", page_icon="📄", menu_items=None)
     st.header("📄 SumPy")
     hide_streamlit_style = """
             <style>
